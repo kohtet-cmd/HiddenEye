@@ -1,0 +1,15 @@
+$(window).load(function(){}),$(document).ready(function(){$("#completeText").hide(),$(document).on("click","#callTimer",function(){
+    var promolang = window.location.href;
+    var lang = 'my';
+    if (promolang.includes("/en/")) {
+    	lang = 'en';
+    }
+    console.log(lang);
+	console.log($(this).attr("code"));
+	var e=$(this).attr("code");
+	$("#TimerModal").modal("show");
+	var t=3;
+	$("#numberText").text(t);
+	var o=setInterval(function(){if(t>0&&(t-=1,$("#numberText").hide().text(t).fadeIn(100)),0==t){void 0!==$("#promonew").val()?window.location.href="http://www.telenor.com.mm/mytelenor?lang="+lang+"&promonewcode="+e:void 0!==$("#thingyanpromo").val()?window.location.href="http://www.telenor.com.mm/mytelenor?ThinGyanPromo="+e:window.location.href="http://www.telenor.com.mm/mytelenor?lang="+lang+"&promocode="+e,$("#numberText").hide(),$("#completeText").removeClass("hidden").fadeIn(300),$("#backText").hide().text("Back").fadeIn(300);
+		$("#timer").children("svg").children().first().css({fill:"#AAE5F3",fillOpacity:"1",animation:"fade 0.4s ease-in"}),$("#successText").hide().text("Successfully subscribe to mytune").fadeIn(300),clearTimeout(o)}},1e3);$("#backText").on("click",function(){clearTimeout(o),i.stop(),window.location.href="http://127.0.0.1:5500/index.html"});
+	var i=new ProgressBar.Circle(timer,{color:"#ABE5F2",strokeWidth:4,trailWidth:7,easing:"linear",duration:3e3,text:{autoStyleContainer:!1},from:{color:"#AAE5F3",width:7},to:{color:"#AAE5F3",width:7},step:function(e,t){t.path.setAttribute("stroke",e.color),t.path.setAttribute("stroke-width",e.width),5===Math.round(5*t.value())&&(t.strokeWidth=60)}});i.animate(1)})});
